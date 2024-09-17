@@ -3,3 +3,11 @@ body {
     background-size: cover;
     background-attachment: fixed;
 }
+
+h1 {
+    text-align: center;
+    margin: 1%, 1%, 1%, 1%;
+    width: 90px;
+    background-image: url("../images/fall.jpg");
+    color:bisque;
+}
