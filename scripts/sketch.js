@@ -4,6 +4,7 @@ let clock;
 let Clock;
 let owl;
 var cnv;
+var stopwatch = false;
 var coin = 0;
 
 
@@ -37,11 +38,28 @@ function draw() {
     bg.resize(windowWidth/1.78,windowHeight/1.78);
     clock.resize(150,150);
     egg.resize(150,200);
-    //chbox.display();
+    //timer.display();
+    keyPressed();
   }
 
   function mousePressed() {
-    chbox.clicked();
+    timer.clicked();
+  }
+
+  function keyPressed() {
+    if (key === "t") {
+      if (stopwatch === false) {
+        stopwatch = true;
+      }
+
+      if (stopwatch === true ) {
+        rect(500, 500, 500, 500);
+        stopwatch = false;
+      }
+      
+
+    }
+
   }
 
   function windowResized() {
