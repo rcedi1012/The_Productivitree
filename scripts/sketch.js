@@ -4,7 +4,6 @@ let clock;
 let Clock;
 let owl;
 var cnv;
-var stopwatch = false;
 var coin = 0;
 
 
@@ -22,44 +21,34 @@ function preload() {
 }
 
 function setup() {
-    let Clock = new timer();
+    Clock = new timer();
     cnv = createCanvas((windowWidth/1.78),(windowHeight/1.78));
     centerCanvas();
+    noLoop();
 }
 
 function draw() {
     background(220);
-    image(bg, 0 ,0);
+    image(bg, 0 ,0,windowWidth/1.78,windowHeight/1.78);
+    
     image(owl,width - 300,50);
-    image(clock,450,height/2-25);
-    image(egg,250,160);
-    rect(0, height-100, width, height/2);
+    
+    image(clock,450,height/2-25,150,150);
+    Clock.show();
+
+    image(egg,250,160,150,200);
+    
     fill(105, 56, 17);
-    bg.resize(windowWidth/1.78,windowHeight/1.78);
-    clock.resize(150,150);
-    egg.resize(150,200);
-    //timer.display();
-    keyPressed();
+    rect(0, height-100, width, height/2);
+
+    text("x" + mouseX, 300, 300);
+    text("y" + mouseY, 300, 200);
+    
   }
+
 
   function mousePressed() {
-    timer.clicked();
-  }
-
-  function keyPressed() {
-    if (key === "t") {
-      if (stopwatch === false) {
-        stopwatch = true;
-      }
-
-      if (stopwatch === true ) {
-        rect(500, 500, 500, 500);
-        stopwatch = false;
-      }
-      
-
-    }
-
+    Clock.clicked();
   }
 
   function windowResized() {

@@ -1,19 +1,22 @@
-class chbox {
+class timer{
     constructor() {
-      chbox.x = 450;
-      chbox.y = height/2 - 25;
-      chbox.size = 150;
+      this.x = 518;
+      this.y = 287;
+      this.size = 50;
+      let stopwatch = false;
     }
   
-    display() {
-      ellipse(chbox.x, chbox.y, chbox.size);
+    show() {
+      fill(0, 0);
       noStroke();
-      fill(0);
+      ellipse(this.x, this.y, this.size *2);
+      image(clock,450,height/2-25,150,150);
     }
   
     clicked() {
-      if (dist(mouseX, mouseY, chbox.x, chbox.y) < chbox.size) {
+      if (dist(mouseX, mouseY, this.x, this.y) < this.size) {
         ellipse(200,200,200);
+        stopwatch = true;
       }
     }
   }
