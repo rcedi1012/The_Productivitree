@@ -21,7 +21,7 @@ function preload() {
 }
 
 function setup() {
-    let cbox = new chbox ();
+    let cbox = new chbox();
     cnv = createCanvas((windowWidth/1.78),(windowHeight/1.78));
     centerCanvas();
 }
@@ -31,13 +31,13 @@ function draw() {
     image(bg, 0 ,0);
     image(owl,width - 300,50);
     image(clock,450,height/2-25);
-    //chbox.display();
     image(egg,250,160);
     rect(0, height-100, width, height/2);
     fill(105, 56, 17);
     bg.resize(windowWidth/1.78,windowHeight/1.78);
     clock.resize(150,150);
     egg.resize(150,200);
+    //chbox.display();
   }
 
   function mousePressed() {
