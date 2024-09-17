@@ -1,7 +1,7 @@
 let bg;
 let egg;
 let clock;
-let cbox;
+let Clock;
 let owl;
 var cnv;
 var coin = 0;
@@ -21,7 +21,7 @@ function preload() {
 }
 
 function setup() {
-    let cbox = new chbox();
+    let Clock = new timer();
     cnv = createCanvas((windowWidth/1.78),(windowHeight/1.78));
     centerCanvas();
 }
