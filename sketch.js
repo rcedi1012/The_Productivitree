@@ -1,20 +1,6 @@
-let bg;
-let egg;
-let blueEgg;
-let clock;
+let bg, egg, blueEgg, clock, owln, desk, acorn, berries, hb;
+let h, liz, owla1, owla2, owlh1, owlh2, rat, token;
 let Clock;
-let owln;
-let desk;
-let acorn;
-let berries;
-let hb;
-let h;
-let liz;
-let owla1;
-let owla2
-let owlh1
-let owlh2;
-let rat;
 var coin = 0;
 
 
@@ -44,13 +30,14 @@ function setup() {
     canvas.position(0, 0);
     canvas.style('z-index', '-1');
     
-    imageMode(CENTER);
     //noLoop();
 }
 
 function draw() {
     background(220);
+    imageMode(CORNER);
     image(bg, 0, 0);
+    imageMode(CENTER);
     
     image(owln,0,0);
 
@@ -60,9 +47,6 @@ function draw() {
     Clock.show();
 
     image(egg,250,160,150,200);
-    
-    fill(105, 56, 17);
-    rect(0, height-100, width, height/2);
 
     text("x" + mouseX, 300, 300);
     text("y" + mouseY, 300, 200);
