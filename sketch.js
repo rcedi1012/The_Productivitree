@@ -35,18 +35,18 @@ function setup() {
 
 function draw() {
     background(220);
-    imageMode(CORNER);
-    image(bg, 0, 0);
-    imageMode(CENTER);
+    image(bg, 0, 0, width, height);
     
-    image(owln,0,0);
+    image(owln,0,0,width,height);
 
-    image(desk,0,0);
+    image(desk,0,0,width,height);
     
-    image(clock,0,0);
+    //image(clock,0,0,width,height);
     Clock.show();
 
-    image(egg,250,160,150,200);
+    image(egg,0, 0,width,height);
+
+    image(blueEgg, 0, 0,width,height);
 
     text("x" + mouseX, 300, 300);
     text("y" + mouseY, 300, 200);

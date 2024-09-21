@@ -10,7 +10,7 @@ class timer{
       fill(0, 0);
       //noStroke();
       
-      image(clock,0,0);
+      image(clock,0,0,width,height);
       ellipse(mouseX, mouseY, this.size *2);
     }
   
