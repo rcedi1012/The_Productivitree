@@ -1,39 +1,60 @@
 let bg;
 let egg;
+let blueEgg;
 let clock;
 let Clock;
-let owl;
-var cnv;
+let owln;
+let desk;
+let acorn;
+let berries;
+let hb;
+let h;
+let liz;
+let owla1;
+let owla2
+let owlh1
+let owlh2;
+let rat;
 var coin = 0;
 
 
-function centerCanvas() {
-  var cx = (windowWidth - width) / 2;
-  var cy = (windowHeight - height) / 2;
-  cnv.position(cx, cy);
-}
-
 function preload() {
-    bg = loadImage("library.jpg");
+    bg = loadImage("bg.png");
     egg = loadImage("egg.png");
+    blueEgg = loadImage("blueEgg.png");
     clock = loadImage("clock.png");
-    owl = loadImage("owl.png");
+    owln = loadImage("owl neutral.png");
+    desk = loadImage("desk.png");
+    acorn = loadImage("acorn.png");
+    berries = loadImage("berries.png");
+    hb = loadImage("heart broken.png");
+    h = loadImage("heart.png");
+    liz = loadImage("lizard.png");
+    owla1 = loadImage("owl anger1.png");
+    owla2 = loadImage("owl anger2.png");
+    owlh1 = loadImage("owl happy1.png");
+    owlh2 = loadImage("owl happy2.png");
+    rat = loadImage("rat.png");
+    var canvas;
 }
 
 function setup() {
     Clock = new timer();
-    cnv = createCanvas((windowWidth/1.78),(windowHeight/1.78));
-    centerCanvas();
-    noLoop();
+    canvas = createCanvas(windowWidth, windowHeight);
+    canvas.position(0, 0);
+    canvas.style('z-index', '-1');
+    //noLoop();
 }
 
 function draw() {
     background(220);
-    image(bg, 0 ,0,windowWidth/1.78,windowHeight/1.78);
+    image(bg, 0, 0);
     
-    image(owl,width - 300,50);
+    image(owln,0,0);
+
+    image(desk,0,0);
     
-    image(clock,450,height/2-25,150,150);
+    image(clock,0,0);
     Clock.show();
 
     image(egg,250,160,150,200);

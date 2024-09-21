@@ -2,15 +2,16 @@ class timer{
     constructor() {
       this.x = 518;
       this.y = 287;
-      this.size = 50;
+      this.size = 60;
       let stopwatch = false;
     }
   
     show() {
       fill(0, 0);
-      noStroke();
-      ellipse(this.x, this.y, this.size *2);
-      image(clock,450,height/2-25,150,150);
+      //noStroke();
+      
+      image(clock,0,0);
+      ellipse(mouseX, mouseY, this.size *2);
     }
   
     clicked() {
