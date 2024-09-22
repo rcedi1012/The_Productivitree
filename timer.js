@@ -2,7 +2,7 @@ class timer{
     constructor() {
       this.x = 518;
       this.y = 287;
-      this.size = 60;
+      this.size = windowWidth * 0.03;
       let stopwatch = false;
     }
   
@@ -11,7 +11,7 @@ class timer{
       //noStroke();
       
       image(clock,0,0,width,height);
-      ellipse(mouseX, mouseY, this.size *2);
+      ellipse(windowWidth * 0.72, aspectH * 0.45, this.size *2);
     }
   
     clicked() {

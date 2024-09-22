@@ -1,6 +1,7 @@
 let bg, egg, blueEgg, clock, owln, desk, acorn, berries, hb;
 let h, liz, owla1, owla2, owlh1, owlh2, rat, token;
 let Clock;
+let aspectH;
 var coin = 0;
 
 
@@ -21,11 +22,11 @@ function preload() {
     owlh1 = loadImage("owl happy1.png");
     owlh2 = loadImage("owl happy2.png");
     rat = loadImage("rat.png");
-    var canvas;
+    //var canvas;
 }
 
 function setup() {
-    let aspectH = 9 * windowWidth/16;  
+    aspectH = 9 * windowWidth/16;
     Clock = new timer();
     canvas = createCanvas(windowWidth, aspectH);
     canvas.position(0, windowHeight/2 - (height/2));
@@ -48,6 +49,8 @@ function draw() {
     image(egg,0, 0,width,height);
 
     image(blueEgg, 0, 0,width,height);
+
+    fill(0);
 
     text("x" + mouseX, 300, 300);
     text("y" + mouseY, 300, 200);
