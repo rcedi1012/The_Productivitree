@@ -25,9 +25,10 @@ function preload() {
 }
 
 function setup() {
+    let aspectH = 9 * windowWidth/16;  
     Clock = new timer();
-    canvas = createCanvas(windowWidth, windowHeight);
-    canvas.position(0, 0);
+    canvas = createCanvas(windowWidth, aspectH);
+    canvas.position(0, windowHeight/2 - (height/2));
     canvas.style('z-index', '-1');
     
     //noLoop();
@@ -50,7 +51,6 @@ function draw() {
 
     text("x" + mouseX, 300, 300);
     text("y" + mouseY, 300, 200);
-    
   }
 
 
