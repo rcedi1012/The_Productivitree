@@ -1,13 +1,15 @@
-let bg, egg, blueEgg, clock, owln, desk, acorn, berries, hb;
-let h, liz, owla1, owla2, owlh1, owlh2, rat, token;
-let Clock;
+let bg, eggI, blueEgg, clock, owln, desk, acorn, berries, hb;
+let h, liz, owla1, owla2, owlh1, owlh2, rat, coin;
+let Clock, Owl, Egg, Begg, Token, Menu;
 let aspectH;
-var coin = 0;
+let stopwatch;
+var coinNum = 0;
+let mClick;
 
 
 function preload() {
     bg = loadImage("bg.png");
-    egg = loadImage("egg.png");
+    eggI = loadImage("egg.png");
     blueEgg = loadImage("blueEgg.png");
     clock = loadImage("clock.png");
     owln = loadImage("owl neutral.png");
@@ -22,12 +24,16 @@ function preload() {
     owlh1 = loadImage("owl happy1.png");
     owlh2 = loadImage("owl happy2.png");
     rat = loadImage("rat.png");
-    //var canvas;
 }
 
 function setup() {
     aspectH = 9 * windowWidth/16;
     Clock = new timer();
+    Owl = new owl();
+    Egg = new egg();
+    Begg = new begg();
+    Token = new token();
+    Menu = new menu();
     canvas = createCanvas(windowWidth, aspectH);
     canvas.position(0, windowHeight/2 - (height/2));
     canvas.style('z-index', '-1');
@@ -43,22 +49,24 @@ function draw() {
 
     image(desk,0,0,width,height);
     
-    //image(clock,0,0,width,height);
     Clock.show();
 
-    image(egg,0, 0,width,height);
+    image(eggI,0, 0,width,height);
 
     image(blueEgg, 0, 0,width,height);
 
     fill(0);
 
-    text("x" + mouseX, 300, 300);
-    text("y" + mouseY, 300, 200);
+    text("x" + round((mouseX * 100)/windowWidth) + "%", 300, 300);
+    text("y" + round((mouseY * 100)/aspectH) + "%", 300, 310);
+
+    Menu.show();
   }
 
 
   function mousePressed() {
     Clock.clicked();
+    Menu.clicked();
   }
 
   function windowResized() {
