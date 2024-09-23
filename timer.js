@@ -123,7 +123,7 @@ class menu {
     if ((mouseX > this.x1) && (mouseX < this.x1+this.sizex) &&
         (mouseY > this.y2) && (mouseY < this.y2+this.sizey)) {
           if (this.y1 < this.y2 && mClick === 2) {
-            this.y2 = this.y2 - 1;
+            this.y2 = this.y2 - 1*sin(angle);
 
           }
           ellipse(200,200,200);

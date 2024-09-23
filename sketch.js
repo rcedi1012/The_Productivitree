@@ -5,7 +5,7 @@ let aspectH;
 let stopwatch;
 var coinNum = 0;
 let mClick;
-
+let angle;
 
 function preload() {
     bg = loadImage("bg.png");
@@ -37,6 +37,7 @@ function setup() {
     canvas = createCanvas(windowWidth, aspectH);
     canvas.position(0, windowHeight/2 - (height/2));
     canvas.style('z-index', '-1');
+    angle = frameCount % 360;
     
     //noLoop();
 }
@@ -61,12 +62,14 @@ function draw() {
     text("y" + round((mouseY * 100)/aspectH) + "%", 300, 310);
 
     Menu.show();
+    Menu.clicked();
   }
 
 
   function mousePressed() {
     Clock.clicked();
     Menu.clicked();
+    
   }
 
   function windowResized() {
