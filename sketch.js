@@ -87,14 +87,20 @@ function draw() {
 
     fill(0);
 
-    //text("x" + round((mouseX * 100)/windowWidth) + "%", 300, 200);
-    //text("y" + round((mouseY * 100)/aspectH) + "%", 300, 210);
-
     Menu.open();
     Menu.show();
 
     Clock.show();
 
+    if (stopwatch === true) {
+      if ((frameCount % 60 === 0) && (time > 0)) { 
+        time -= 1;
+      }
+      if (time === 0) {
+        money += 1;
+        stopwatch = false;
+      }
+    }
   }
 
   function mousePressed() {
@@ -135,16 +141,10 @@ function draw() {
       time -= 1;
    }
     else if ((key === "e")) {
-      if ((frameCount % 60 === 0) && (time > 0)) { 
-        time -= 1;
-      }
-      if (time === 0) {
-        money += 1;
-      }
+      stopwatch = true;
    }
   }
 }
-
   function windowResized() {
     centerCanvas();
     resizeCanvas((windowWidth/1.78),(windowHeight/1.78));

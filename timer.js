@@ -93,15 +93,19 @@ class owl {
     }
     else if (oa1 === true) {
       image(owla1,0,0,width,height);
+      image(hb,mouseX,mouseY,windowWidth * 0.03, windowWidth * 0.03);
     }
     else if (oa2 === true) {
       image(owla2,0,0,width,height);
+      image(hb,mouseX,mouseY,windowWidth * 0.03, windowWidth * 0.03);
     }
     else if (oh1 === true) {
       image(owlh1,0,0,width,height);
+      image(h,mouseX,mouseY,windowWidth * 0.03, windowWidth * 0.03);
     }
     else if (oh2 === true) {
       image(owlh2,0,0,width,height);
+      image(h,mouseX,mouseY,windowWidth * 0.03, windowWidth * 0.03);
     }
   }
 }
