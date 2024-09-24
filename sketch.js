@@ -6,6 +6,12 @@ let stopwatch;
 var coinNum = 0;
 let mClick;
 let angle;
+let aCount;
+let bCount;
+let lCount;
+let rCount;
+let menuOpen;
+let imageShow;
 
 function preload() {
     bg = loadImage("bg.png");
@@ -34,6 +40,12 @@ function setup() {
     Begg = new begg();
     Token = new token();
     Menu = new menu();
+    aCount = 0;
+    bCount = 0;
+    lCount = 0;
+    rCount = 0;
+    menuOpen = false;
+    imageShow = false;
     canvas = createCanvas(windowWidth, aspectH);
     canvas.position(0, windowHeight/2 - (height/2));
     canvas.style('z-index', '-1');
@@ -58,18 +70,18 @@ function draw() {
 
     fill(0);
 
-    text("x" + round((mouseX * 100)/windowWidth) + "%", 300, 300);
-    text("y" + round((mouseY * 100)/aspectH) + "%", 300, 310);
-
+    text("x" + round((mouseX * 100)/windowWidth) + "%", 300, 200);
+    text("y" + round((mouseY * 100)/aspectH) + "%", 300, 210);
+    
+    Menu.open();
     Menu.show();
-    Menu.clicked();
+
   }
 
 
   function mousePressed() {
     Clock.clicked();
     Menu.clicked();
-    
   }
 
   function windowResized() {
