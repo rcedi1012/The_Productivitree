@@ -279,12 +279,11 @@ class menu {
 
   anim() {
     if (this.y1 > aspectH * 0.8 && hov === true) {
-      this.y1 -= 2;
+      this.y1 -= 5;
     }
-    else if (this.y === aspectH * 0.8 && hov === false){
-      if(this.y < aspectH * 0.8) {
-        this.y1 += 2;
-      }
+    else if (hov === false && this.y1 < aspectH * 0.85){
+        this.y1 += 5;
+      
     }
   }
 }
