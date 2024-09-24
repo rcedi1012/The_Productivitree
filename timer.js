@@ -3,20 +3,40 @@ class timer{
       this.x = windowWidth * 0.71;
       this.y = aspectH * 0.465;
       this.size = windowWidth * 0.03;
+      this.opacity = 255;
     }
   
     show() {
       noStroke();
       noFill();
-      image(clock,0,0,width,height);
+      
+      if (menuOpen === false) {
+        image(clock,0,0,width,height);
+      }
       ellipse(this.x, this.y, this.size *2);
+
+      if (timerOpen === true) {
+        fill(255, 255, 199, this.opacity);
+        stroke(176, 65, 62,this.opacity);
+        strokeWeight(windowWidth * 0.004);
+        rect(windowWidth * 0.12, aspectH * 0.15, windowWidth * .65, windowWidth * .4, windowWidth * 0.004);
+
+        noStroke();
+        fill(176, 65, 62);
+        text("TIMER", windowWidth * 0.38, aspectH * 0.22);
+        textSize(100);
+        text(time, windowWidth * 0.39, aspectH * 0.57)
+        textSize(20);
+        text("    Press the up arrow key to add seconds\nand the down arrow key to subtract seconds.", windowWidth * 0.14, aspectH * 0.75);
+      }
     }
   
     clicked() {
-      timerOpen = true;
-      if (dist(mouseX, mouseY, this.x, this.y) < this.size && mClick === 1) {
-        ellipse(200,200,200);
-        stopwatch = true;
+      if ((dist(mouseX, mouseY, this.x, this.y) < this.size)) {
+        timerOpen = true;
+      }
+      else {
+        timerOpen = false;
       }
     }
   }
@@ -92,6 +112,7 @@ class egg {
     this.y = aspectH * 0.31;
     this.sizex = aspectH * 0.35;
     this.sizey = windowWidth * 0.24;
+    this.size = windowWidth * 0.24;
   }
 
   show() {
@@ -102,9 +123,21 @@ class egg {
   }
 
   clicked() {
-    if ((mouseX > this.x) && (mouseX < this.x+this.sizex) &&
-    (mouseY > this.y) && (mouseY < this.y+this.sizey) && (menuOpen === false)) {
-      money += 1;
+    if ((dist(mouseX, mouseY, this.x, this.y) < this.size) && (money > 0)) {
+      money -= 1;
+      critter2 = round(random(1,4));
+      if (critter2 === 1) {
+        rCount += 1;
+      }
+      else if (critter2 === 2) {
+        bCount += 1;
+      }
+      else if (critter2 === 3) {
+        lCount += 1;
+      }
+      else {
+        aCount +=1;
+      }
     }
   }
 
@@ -112,22 +145,30 @@ class egg {
 
 class begg {
   constructor() {
-    this.x = windowWidth * 0.71;
-    this.y = aspectH * 0.465;
-    this.size = windowWidth * 0.03;
+    this.x = windowWidth * 0.51;
+    this.y = aspectH * 0.31;
+    this.sizex = aspectH * 0.35;
+    this.sizey = windowWidth * 0.24;
+    this.size = windowWidth * 0.24;
   }
 
   show() {
     noStroke();
     noFill();
-    image(clock,0,0,width,height);
-    ellipse(this.x, this.y, this.size *2);
+    image(blueEgg,0,0,width,height);
+    ellipse(this.x, this.y, this.sizex, this.sizey);
   }
 
   clicked() {
-    if (dist(mouseX, mouseY, this.x, this.y) < this.size) {
-      ellipse(200,200,200);
-      stopwatch = true;
+    if ((dist(mouseX, mouseY, this.x, this.y) < this.size) && (money > 1)) {
+      money -= 2;
+      critter = round(random(1,2));
+      if (critter === 1) {
+        rCount += 1;
+      }
+      else {
+        bCount += 1;
+      }
     }
   }
 

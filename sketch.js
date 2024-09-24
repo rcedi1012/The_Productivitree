@@ -16,6 +16,8 @@ let imageShow;
 let owlMeter;
 let on, oa1, oa2, oh1, oh2;
 let money;
+let critter;
+let critter2;
 
 function preload() {
     bg = loadImage("bg.png");
@@ -68,40 +70,44 @@ function setup() {
 
 function draw() {
     background(220);
+    frameRate(60);
+    
     image(bg, 0, 0, width, height);
     
     Owl.show();
 
     image(desk,0,0,width,height);
     
-    Clock.show();
 
-    image(eggI,0, 0,width,height);
     Egg.show();
 
-    image(blueEgg, 0, 0,width,height);
+    Begg.show();
 
     Token.show();
 
     fill(0);
 
-    text("x" + round((mouseX * 100)/windowWidth) + "%", 300, 200);
-    text("y" + round((mouseY * 100)/aspectH) + "%", 300, 210);
-    
+    //text("x" + round((mouseX * 100)/windowWidth) + "%", 300, 200);
+    //text("y" + round((mouseY * 100)/aspectH) + "%", 300, 210);
+
     Menu.open();
     Menu.show();
+
+    Clock.show();
 
   }
 
   function mousePressed() {
     Clock.clicked();
     Menu.clicked();
-    Owl.clicked();
     Egg.clicked();
-    money += 1;
+    Begg.clicked();
   }
 
   function keyPressed () {
+    if (key === "p") {
+      money += 1;
+    }
     if (menuOpen === true) {
     if ((key === "1") && (aCount > 0)) {
       aCount -= 1;
@@ -122,21 +128,22 @@ function draw() {
    }
 
    if (timerOpen === true) {
-    if (keyCode === ArrowUp) {
+    if (key === "w") {
       time += 1;
     }
-    else if ((keyCode === ArrowDown) && (time > 0)) 
+    else if ((key === "s") && (time > 0)){ 
       time -= 1;
    }
-   else if ((keyCode === ENTER) && (time > 0)) {
-    if ((frameCount % 60 == 0) && (time > 0)) { 
-      time --;
-    }
-    if (time == 0) {
-      money += 1;
-    }
+    else if ((key === "e")) {
+      if ((frameCount % 60 === 0) && (time > 0)) { 
+        time -= 1;
+      }
+      if (time === 0) {
+        money += 1;
+      }
    }
   }
+}
 
   function windowResized() {
     centerCanvas();
