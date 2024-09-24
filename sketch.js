@@ -18,6 +18,9 @@ let on, oa1, oa2, oh1, oh2;
 let money;
 let critter;
 let critter2;
+let grow;
+let angle;
+let hov;
 
 function preload() {
     bg = loadImage("bg.png");
@@ -59,6 +62,8 @@ function setup() {
     oa2 = false;
     oh1 = false;
     oh2 = false;
+    grow = false;
+    hov = false;
     owlMeter = 0;
     money = 0;
     canvas = createCanvas(windowWidth, aspectH);
@@ -71,6 +76,7 @@ function setup() {
 function draw() {
     background(220);
     frameRate(60);
+    angle += 0.1;
     
     image(bg, 0, 0, width, height);
     
@@ -89,8 +95,13 @@ function draw() {
 
     Menu.open();
     Menu.show();
+    Menu.hover();
+    Menu.anim();
+
+    text(hov, 200, 200);
 
     Clock.show();
+    Clock.grow();
 
     if (stopwatch === true) {
       if ((frameCount % 60 === 0) && (time > 0)) { 

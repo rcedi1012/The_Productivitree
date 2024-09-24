@@ -4,6 +4,10 @@ class timer{
       this.y = aspectH * 0.465;
       this.size = windowWidth * 0.03;
       this.opacity = 255;
+      this.growx = windowWidth;
+      this.growy = aspectH;
+      this.xx = 0;
+      this.yy = 0;
     }
   
     show() {
@@ -11,7 +15,7 @@ class timer{
       noFill();
       
       if (menuOpen === false) {
-        image(clock,0,0,width,height);
+        image(clock,this.xx,this.yy,this.growx,this.growy);
       }
       ellipse(this.x, this.y, this.size *2);
 
@@ -39,6 +43,10 @@ class timer{
       else {
         timerOpen = false;
       }
+    }
+
+    grow() {
+
     }
   }
 
@@ -222,6 +230,10 @@ class menu {
     text("x" + bCount,this.x1 * 1.8,this.y1 * 5.4);
     text("x" + lCount,this.x1 * 5.2,this.y1 * 3.2);
     text("x" + rCount,this.x1 * 5.2,this.y1 * 5.54);
+    text("1",this.x1 * 1.3,this.y1 * 2.45);
+    text("2",this.x1 * 6.,this.y1 * 2.45);
+    text("3",this.x1 * 1.3,this.y1 * 4.9);
+    text("4",this.x1 * 6,this.y1 * 4.9);
 
     if (imageShow == true) {
       image(acorn, this.x1 * -3.5, this.y2 * -0.5,width * 1.3,height * 1.3);
@@ -251,6 +263,28 @@ class menu {
     if (menuOpen == true) {
       this.y1 = this.y2;
       this.opacity = 255;
+    }
+
+  }
+
+  hover() {
+    if ((mouseX > this.x1) && (mouseX < this.x1+this.sizex) &&
+    (mouseY > this.y1) && (mouseY < this.y1+this.sizey)) {
+      hov = true;
+    }
+    else {
+      hov = false;
+    }
+  }
+
+  anim() {
+    if (this.y1 > aspectH * 0.8 && hov === true) {
+      this.y1 -= 2;
+    }
+    else if (this.y === aspectH * 0.8 && hov === false){
+      if(this.y < aspectH * 0.8) {
+        this.y1 += 2;
+      }
     }
   }
 }
