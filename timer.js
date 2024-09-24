@@ -22,8 +22,68 @@ class timer{
   }
 
 class owl { 
+  constructor() {
+    this.x = windowWidth * 0.87;
+    this.y = aspectH * 0.42;
+    this.xa = width;
+    this.sizex = aspectH * 0.13;
+    this.sizey = windowWidth * 0.2;
+  }
 
-
+  show() {
+    noStroke();
+    noFill();
+    if (owlMeter === 0) {
+      on = true;
+      oa1 = false;
+      oa2 = false;
+      oh1 = false;
+      oh2 = false;
+    }
+    else if ((owlMeter > 0) && (owlMeter <= 2)) {
+      on = false;
+      oa1 = false;
+      oa2 = false;
+      oh1 = true;
+      oh2 = false;
+    }
+    else if ((owlMeter > 2) && (owlMeter <= 4)) {
+      on = false;
+      oa1 = false;
+      oa2 = false;
+      oh1 = false;
+      oh2 = true;
+    }
+    else if ((owlMeter < 0) && (owlMeter >= -2)) {
+      on = false;
+      oa1 = true;
+      oa2 = false;
+      oh1 = false;
+      oh2 = false;
+    }
+    else if ((owlMeter < -2) && (owlMeter >= -4)) {
+      on = false;
+      oa1 = false;
+      oa2 = true;
+      oh1 = false;
+      oh2 = false;
+    }
+    if (on === true) {
+      image(owln,0,0,width,height);
+    }
+    else if (oa1 === true) {
+      image(owla1,0,0,width,height);
+    }
+    else if (oa2 === true) {
+      image(owla2,0,0,width,height);
+    }
+    else if (oh1 === true) {
+      image(owlh1,0,0,width,height);
+    }
+    else if (oh2 === true) {
+      image(owlh2,0,0,width,height);
+    }
+  }
 }
 
 class egg {
@@ -130,6 +190,7 @@ class menu {
       image(berries,this.x1 * -3.5, this.y2 * 2,width * 1.3,height * 1.3);
       image(liz,this.x1 * -0.1, this.y2 * -0.5,width * 1.3,height * 1.3);
       image(rat,this.x1 * -0.1, this.y2 * 1.85,width * 1.3,height * 1.3);
+      text("Press 1, 2, 3, \nor 4 to give \nOwl a gift!",windowWidth * 0.37, aspectH * 0.45);
     }
 
   }

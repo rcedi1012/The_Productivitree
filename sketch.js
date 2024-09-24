@@ -5,13 +5,16 @@ let aspectH;
 let stopwatch;
 var coinNum = 0;
 let mClick;
-let angle;
 let aCount;
 let bCount;
 let lCount;
 let rCount;
 let menuOpen;
+let timerOpen;
+let time;
 let imageShow;
+let owlMeter;
+let on, oa1, oa2, oh1, oh2;
 
 function preload() {
     bg = loadImage("bg.png");
@@ -44,12 +47,18 @@ function setup() {
     bCount = 0;
     lCount = 0;
     rCount = 0;
+    time = 0;
     menuOpen = false;
     imageShow = false;
+    on = true;
+    oa1 = false;
+    oa2 = false;
+    oh1 = false;
+    oh2 = false;
+    owlMeter = 0;
     canvas = createCanvas(windowWidth, aspectH);
     canvas.position(0, windowHeight/2 - (height/2));
     canvas.style('z-index', '-1');
-    angle = frameCount % 360;
     
     //noLoop();
 }
@@ -58,7 +67,7 @@ function draw() {
     background(220);
     image(bg, 0, 0, width, height);
     
-    image(owln,0,0,width,height);
+    Owl.show();
 
     image(desk,0,0,width,height);
     
@@ -78,10 +87,44 @@ function draw() {
 
   }
 
-
   function mousePressed() {
     Clock.clicked();
     Menu.clicked();
+    Owl.clicked();
+  }
+
+  function keyPressed () {
+    if (menuOpen === true) {
+    if ((key === "1") && (aCount > 0)) {
+      aCount -= 1;
+      owlMeter -= 1;
+    }
+    else if ((key === "2") && (bCount > 0)) {
+      bCount -= 1;
+      owlMeter -= 2;
+    }
+    else if ((key === "3") && (lCount > 0)) {
+      lCount -= 1;
+      owlMeter += 1;
+    }
+    else if ((key === "4") && (rCount > 0)) {
+      rCount -= 1;
+      owlMeter += 2;
+    }
+   }
+
+   if (timerOpen === true) {
+    if (keyCode === ArrowUp) {
+      time += 1;
+    }
+    else if ((keyCode === ArrowDown) && (time > 0)) 
+      time -= 1;
+   }
+   else if ((keyCode === ENTER) && (time > 0)) {
+    if ((frameCount % 60 == 0) && (time > 0)) { 
+      time --;
+    }
+   }
   }
 
   function windowResized() {
