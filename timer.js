@@ -23,10 +23,11 @@ class timer{
 
         noStroke();
         fill(176, 65, 62);
+        textSize(windowWidth * 0.033);
         text("TIMER", windowWidth * 0.38, aspectH * 0.22);
-        textSize(100);
+        textSize(windowWidth * .18);
         text(time, windowWidth * 0.39, aspectH * 0.57)
-        textSize(20);
+        textSize(windowWidth * 0.033);
         text("    Press the up arrow key to add seconds\nand the down arrow key to subtract seconds,\n          then press enter to start the timer!", windowWidth * 0.14, aspectH * 0.7);
       }
     }
@@ -186,7 +187,7 @@ class token {
 
   show() {
     fill(255, 255, 199);
-    textSize(40);
+    textSize(windowWidth * 0.06);
     image(coin,0,0,width,height);
     text(money ,this.x, this.y);
   }
@@ -209,14 +210,14 @@ class menu {
     strokeWeight(windowWidth * 0.004);
     rect(this.x1, this.y1, this.sizex, this.sizey, windowWidth * 0.004);
     
-    textSize(40);
+    textSize(windowWidth * 0.06);
     fill(255, 255, 199);
     noStroke();
     textFont('Times New Roman');
     text("Gifts", windowWidth * 0.37,this.y1);
 
     fill(255, 255, 199, this.opacity);
-    textSize(20);
+    textSize(windowWidth * 0.03);
     text("x" + aCount,this.x1 * 1.8,this.y1 * 3.2);
     text("x" + bCount,this.x1 * 1.8,this.y1 * 5.4);
     text("x" + lCount,this.x1 * 5.2,this.y1 * 3.2);
@@ -227,6 +228,7 @@ class menu {
       image(berries,this.x1 * -3.5, this.y2 * 2,width * 1.3,height * 1.3);
       image(liz,this.x1 * -0.1, this.y2 * -0.5,width * 1.3,height * 1.3);
       image(rat,this.x1 * -0.1, this.y2 * 1.85,width * 1.3,height * 1.3);
+      textSize(windowWidth * 0.03);
       text("Press 1, 2, 3, \nor 4 to give \nOwl a gift!",windowWidth * 0.37, aspectH * 0.45);
     }
 

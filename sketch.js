@@ -121,9 +121,9 @@ function draw() {
       rect(0,0,windowWidth,aspectH);
       image(owla2,-550,0,width * 2,height * 2);
       fill(255, 255, 199);
-      textSize(45);
+      textSize(windowWidth * 0.07);
       text("GAME OVER\nSHE HATES YOU.", windowWidth * 0.07, aspectH/2);
-      textSize(30);
+      textSize(windowWidth * 0.05);
       text("Refresh to play again :(",windowWidth * 0.07, aspectH * 0.8)
     }
     else if (owlMeter > 4) {
@@ -145,9 +145,9 @@ function draw() {
       rect(0,0,windowWidth,aspectH);
       image(owlh2,-550,0,width * 2,height * 2);
       fill(255, 255, 199);
-      textSize(45);
+      textSize(windowWidth * 0.07);
       text("CONGRATS\nSHE LIKES YOU!", windowWidth * 0.07, aspectH/2);
-      textSize(30);
+      textSize(windowWidth * 0.05);
       text("Refresh to play again :3",windowWidth * 0.07, aspectH * 0.8)
     }
   }
@@ -168,13 +168,13 @@ function draw() {
       aCount -= 1;
       owlMeter -= 1;
     }
-    else if ((key === "2") && (bCount > 0)) {
-      bCount -= 1;
-      owlMeter -= 2;
-    }
-    else if ((key === "3") && (lCount > 0)) {
+    else if ((key === "2") && (lCount > 0)) {
       lCount -= 1;
       owlMeter += 1;
+    }
+    else if ((key === "3") && (bCount > 0)) {
+      bCount -= 1;
+      owlMeter -= 2;
     }
     else if ((key === "4") && (rCount > 0)) {
       rCount -= 1;
