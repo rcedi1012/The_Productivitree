@@ -13,7 +13,7 @@ class timer{
     }
   
     clicked() {
-      mClick = 1;
+      timerOpen = true;
       if (dist(mouseX, mouseY, this.x, this.y) < this.size && mClick === 1) {
         ellipse(200,200,200);
         stopwatch = true;
@@ -88,22 +88,23 @@ class owl {
 
 class egg {
   constructor() {
-    this.x = windowWidth * 0.71;
-    this.y = aspectH * 0.465;
-    this.size = windowWidth * 0.03;
+    this.x = windowWidth * 0.23;
+    this.y = aspectH * 0.31;
+    this.sizex = aspectH * 0.35;
+    this.sizey = windowWidth * 0.24;
   }
 
   show() {
     noStroke();
     noFill();
-    image(clock,0,0,width,height);
-    ellipse(this.x, this.y, this.size *2);
+    image(eggI,0,0,width,height);
+    ellipse(this.x, this.y, this.sizex, this.sizey);
   }
 
   clicked() {
-    if (dist(mouseX, mouseY, this.x, this.y) < this.size) {
-      ellipse(200,200,200);
-      stopwatch = true;
+    if ((mouseX > this.x) && (mouseX < this.x+this.sizex) &&
+    (mouseY > this.y) && (mouseY < this.y+this.sizey) && (menuOpen === false)) {
+      money += 1;
     }
   }
 
@@ -134,24 +135,15 @@ class begg {
 
 class token {
   constructor() {
-    this.x = windowWidth * 0.71;
-    this.y = aspectH * 0.465;
-    this.size = windowWidth * 0.03;
+    this.x = windowWidth * 0.88;
+    this.y = aspectH * 0.96;
   }
 
   show() {
-    noStroke();
-    noFill();
-    image(clock,0,0,width,height);
-    ellipse(this.x, this.y, this.size *2);
-  }
-
-  clicked() {
-    mClick
-    if (dist(mouseX, mouseY, this.x, this.y) < this.size) {
-      ellipse(200,200,200);
-      stopwatch = true;
-    }
+    fill(255, 255, 199);
+    textSize(40);
+    image(coin,0,0,width,height);
+    text(money ,this.x, this.y);
   }
 
 }

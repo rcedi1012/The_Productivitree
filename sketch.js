@@ -15,6 +15,7 @@ let time;
 let imageShow;
 let owlMeter;
 let on, oa1, oa2, oh1, oh2;
+let money;
 
 function preload() {
     bg = loadImage("bg.png");
@@ -33,6 +34,7 @@ function preload() {
     owlh1 = loadImage("owl happy1.png");
     owlh2 = loadImage("owl happy2.png");
     rat = loadImage("rat.png");
+    coin = loadImage("token.png");
 }
 
 function setup() {
@@ -56,6 +58,7 @@ function setup() {
     oh1 = false;
     oh2 = false;
     owlMeter = 0;
+    money = 0;
     canvas = createCanvas(windowWidth, aspectH);
     canvas.position(0, windowHeight/2 - (height/2));
     canvas.style('z-index', '-1');
@@ -74,8 +77,11 @@ function draw() {
     Clock.show();
 
     image(eggI,0, 0,width,height);
+    Egg.show();
 
     image(blueEgg, 0, 0,width,height);
+
+    Token.show();
 
     fill(0);
 
@@ -91,6 +97,8 @@ function draw() {
     Clock.clicked();
     Menu.clicked();
     Owl.clicked();
+    Egg.clicked();
+    money += 1;
   }
 
   function keyPressed () {
@@ -123,6 +131,9 @@ function draw() {
    else if ((keyCode === ENTER) && (time > 0)) {
     if ((frameCount % 60 == 0) && (time > 0)) { 
       time --;
+    }
+    if (time == 0) {
+      money += 1;
     }
    }
   }
