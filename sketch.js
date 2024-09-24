@@ -101,6 +101,55 @@ function draw() {
         stopwatch = false;
       }
     }
+
+    if (owlMeter < -4) {
+      aCount = 0;
+    bCount = 0;
+    lCount = 0;
+    rCount = 0;
+    time = 0;
+    menuOpen = false;
+    imageShow = false;
+    on = true;
+    oa1 = false;
+    oa2 = false;
+    oh1 = false;
+    oh2 = false;
+    owlMeter = -5;
+    money = 0;
+      fill(252, 170, 103);
+      rect(0,0,windowWidth,aspectH);
+      image(owla2,-550,0,width * 2,height * 2);
+      fill(255, 255, 199);
+      textSize(45);
+      text("GAME OVER\nSHE HATES YOU.", windowWidth * 0.07, aspectH/2);
+      textSize(30);
+      text("Refresh to play again :(",windowWidth * 0.07, aspectH * 0.8)
+    }
+    else if (owlMeter > 4) {
+      aCount = 0;
+    bCount = 0;
+    lCount = 0;
+    rCount = 0;
+    time = 0;
+    menuOpen = false;
+    imageShow = false;
+    on = true;
+    oa1 = false;
+    oa2 = false;
+    oh1 = false;
+    oh2 = false;
+    owlMeter = 5;
+    money = 0;
+      fill(252, 170, 103);
+      rect(0,0,windowWidth,aspectH);
+      image(owlh2,-550,0,width * 2,height * 2);
+      fill(255, 255, 199);
+      textSize(45);
+      text("CONGRATS\nSHE LIKES YOU!", windowWidth * 0.07, aspectH/2);
+      textSize(30);
+      text("Refresh to play again :3",windowWidth * 0.07, aspectH * 0.8)
+    }
   }
 
   function mousePressed() {
@@ -134,13 +183,13 @@ function draw() {
    }
 
    if (timerOpen === true) {
-    if (key === "w") {
+    if (keyCode === UP_ARROW) {
       time += 1;
     }
-    else if ((key === "s") && (time > 0)){ 
+    else if ((keyCode === DOWN_ARROW) && (time > 0)){ 
       time -= 1;
    }
-    else if ((key === "e")) {
+    else if ((keyCode === ENTER)) {
       stopwatch = true;
    }
   }

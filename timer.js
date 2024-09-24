@@ -27,7 +27,7 @@ class timer{
         textSize(100);
         text(time, windowWidth * 0.39, aspectH * 0.57)
         textSize(20);
-        text("    Press the up arrow key to add seconds\nand the down arrow key to subtract seconds.", windowWidth * 0.14, aspectH * 0.75);
+        text("    Press the up arrow key to add seconds\nand the down arrow key to subtract seconds,\n          then press enter to start the timer!", windowWidth * 0.14, aspectH * 0.7);
       }
     }
   
