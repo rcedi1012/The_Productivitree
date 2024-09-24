@@ -119,12 +119,12 @@ function draw() {
     money = 0;
       fill(252, 170, 103);
       rect(0,0,windowWidth,aspectH);
-      image(owla2,-550,0,width * 2,height * 2);
       fill(255, 255, 199);
       textSize(windowWidth * 0.07);
       text("GAME OVER\nSHE HATES YOU.", windowWidth * 0.07, aspectH/2);
       textSize(windowWidth * 0.05);
-      text("Refresh to play again :(",windowWidth * 0.07, aspectH * 0.8)
+      text("Refresh to play again :(",windowWidth * 0.07, aspectH * 0.8);
+      image(owla2,-550,0,width * 2,height * 2);
     }
     else if (owlMeter > 4) {
       aCount = 0;
@@ -143,12 +143,12 @@ function draw() {
     money = 0;
       fill(252, 170, 103);
       rect(0,0,windowWidth,aspectH);
-      image(owlh2,-550,0,width * 2,height * 2);
       fill(255, 255, 199);
       textSize(windowWidth * 0.07);
       text("CONGRATS\nSHE LIKES YOU!", windowWidth * 0.07, aspectH/2);
       textSize(windowWidth * 0.05);
-      text("Refresh to play again :3",windowWidth * 0.07, aspectH * 0.8)
+      text("Refresh to play again :3",windowWidth * 0.07, aspectH * 0.8);
+      image(owlh2,-550,0,width * 2,height * 2);
     }
   }
 
